@@ -58,7 +58,18 @@ exports.carPut = function (req, res) {
     response.successResponse(res,"Car Put Endpoint")
 }
 
-exports.carDelete = function (req, res) {
-    const id = req.params.id
-    response.successResponse(res,"Car Delete Endpoint")
+exports.carDelete = async function (req, res) {
+    try {
+        const id = req.params.id
+        if (!validate.ValidateObjectId(id))
+            return response.errorResponse(res,"Id format is not correct",400)
+
+        const result = await Car.findByIdAndDelete({_id: id})
+        if (!result)
+            return response.errorResponse(res,"Car not found",404)
+
+        return response.successResponse(res,id)
+    } catch (e) {
+        response.errorResponse(res,e.message,500)
+    }
 }
