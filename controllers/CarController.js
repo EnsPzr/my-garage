@@ -40,7 +40,8 @@ exports.carPost = async function (req, res) {
             year: req.body.year,
             km: req.body.km,
             number_plate: req.body.number_plate.replace(/ /g, ""),
-            user: req.user.id
+            photos: req.body.photos,
+            user: req.user.id,
         })
 
         const exResult = await Car.exists({number_plate: car.number_plate})
@@ -72,6 +73,7 @@ exports.carPut = async function (req, res) {
         car.year = req.body.year
         car.km = req.body.km
         car.number_plate = req.body.number_plate.replace(/ /g, "")
+        car.photos = req.body.photos
 
         const exResult = await Car.exists({
             $and: [{number_plate: car.number_plate}, {_id: {$ne: id}}]
