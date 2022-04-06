@@ -4,6 +4,20 @@ exports.ValidateObjectId = function (id) {
     return mongoose.isValidObjectId(id)
 }
 
+const types = [
+    "image/bmp",
+    "image/gif",
+    "image/x-icon",
+    "image/jpeg",
+    "image/pjpeg",
+    "image/x-jps",
+    "image/png",
+    "image/tiff"
+]
+exports.PhotoTypeValidate = function (mimeType) {
+    return types.includes(mimeType)
+}
+
 const year = new Date().getFullYear()
 exports.carValidation = [
     body("brand").trim().isLength({min: 2}).withMessage("Brand be minimum 2 character"),
@@ -23,6 +37,6 @@ exports.loginValidate = [
 exports.registerValidate = [
     body("email").trim().isLength({min: 2}).withMessage("Email be minimum 2 character").isEmail().withMessage("Please enter the correct format email"),
     body("password").trim().isLength({min: 6}).withMessage("Passwrod be minimum 6 character"),
-    body("firstname").trim().isLength({min:2}).withMessage("First name be minimum 2 character"),
-    body("lastname").trim().isLength({min:2}).withMessage("Last name be minimum 2 character"),
+    body("firstname").trim().isLength({min: 2}).withMessage("First name be minimum 2 character"),
+    body("lastname").trim().isLength({min: 2}).withMessage("Last name be minimum 2 character"),
 ]
