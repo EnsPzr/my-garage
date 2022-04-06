@@ -7,6 +7,6 @@ router.get("/", carController.carGetAll)
 router.get("/:id", carController.carGet)
 router.post("/", carValidation, carController.carPost)
 router.put("/:id", carController.carPut)
-router.delete(":/id", carController.carDelete)
+router.delete("/:id", carController.carDelete)
 
 module.exports = router;
