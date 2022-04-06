@@ -2,8 +2,13 @@ const Car = require("../models/CarModel")
 const response = require("../utils/response")
 
 
-exports.carGetAll = function (req, res) {
-    response.successResponse(res,"Car Get All Endpoint")
+exports.carGetAll = async function (req, res) {
+    try {
+        const rows = await Car.find({})
+        response.successResponse(res, rows)
+    } catch (e) {
+        response.errorResponse(res,e.message,500)
+    }
 }
 
 exports.carGet = function (req, res) {
