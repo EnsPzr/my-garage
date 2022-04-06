@@ -1,5 +1,6 @@
 <h2>My Garage</h2>
-This project developed for to do pratic the node.js.
+This project developed for to do pratic the node.js. <br>
+<hr>
 Use in project:
 <ul>
 <li>Express</li>
