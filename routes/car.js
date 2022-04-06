@@ -6,7 +6,7 @@ const router = express.Router()
 router.get("/", carController.carGetAll)
 router.get("/:id", carController.carGet)
 router.post("/", carValidation, carController.carPost)
-router.put("/:id", carController.carPut)
+router.put("/:id", carValidation, carController.carPut)
 router.delete("/:id", carController.carDelete)
 
 module.exports = router;
