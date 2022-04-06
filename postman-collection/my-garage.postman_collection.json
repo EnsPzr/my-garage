@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "f4d987cf-3b7e-4273-85db-00843fcca6df",
+		"name": "my-garage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cars Get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWVobWV0IEVuZXNQQVpBUiIsImlkIjoiNjI0ZDdjZmVmOGQ4NDJjMzdjODJhZDIyIiwiaWF0IjoxNjQ5MjQ1NzA4LCJleHAiOjE2NDkzMzIxMDh9.ru4dKXNhh9Wk_xjt4BOGCpRabpaR6sxr9dDNSG-2SOc",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/car",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"car"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Car Get",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWVobWV0IEVuZXNQQVpBUiIsImlkIjoiNjI0ZDdjZmVmOGQ4NDJjMzdjODJhZDIyIiwiaWF0IjoxNjQ5MjQ1OTI5LCJleHAiOjE2NDkzMzIzMjl9.C0MlgvUBnxyAvIFFT4oSH8CfMsQgFEZXlCCz0ewzcgA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/car/624d812582bcc26c729ad95d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"car",
+						"624d812582bcc26c729ad95d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Car Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWVobWV0IEVuZXNQQVpBUiIsImlkIjoiNjI0ZDdjZmVmOGQ4NDJjMzdjODJhZDIyIiwiaWF0IjoxNjQ5MjQ1OTI5LCJleHAiOjE2NDkzMzIzMjl9.C0MlgvUBnxyAvIFFT4oSH8CfMsQgFEZXlCCz0ewzcgA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"brand\":\"Renault \",\n    \"model\":\"Megane \",\n    \"year\":2008,\n    \"km\":243840,\n    \"number_plate\":\"43 MEP 803\",\n    \"photos\": [\n        \"./photos/b4010ea9-a051-4c7d-a3d7-bc2e8ef65a7a.jpg\",\n        \"./photos/de4c4b67-605a-4dbe-a1a4-eb45a4c7e94a.jpg\",\n        \"./photos/f925bb70-f9c2-4c9d-a019-1ca2454e3711.jpg\",\n        \"./photos/97185af1-080e-4d7f-973e-089462d287b6.jpg\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/car",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"car"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Car Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWVobWV0IEVuZXNQQVpBUiIsImlkIjoiNjI0ZDdjZmVmOGQ4NDJjMzdjODJhZDIyIiwiaWF0IjoxNjQ5MjQ1OTI5LCJleHAiOjE2NDkzMzIzMjl9.C0MlgvUBnxyAvIFFT4oSH8CfMsQgFEZXlCCz0ewzcgA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/car/624d8300729f82124574ad9c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"car",
+						"624d8300729f82124574ad9c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Car Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWVobWV0IEVuZXNQQVpBUiIsImlkIjoiNjI0ZDdjZmVmOGQ4NDJjMzdjODJhZDIyIiwiaWF0IjoxNjQ5MjQ1OTI5LCJleHAiOjE2NDkzMzIzMjl9.C0MlgvUBnxyAvIFFT4oSH8CfMsQgFEZXlCCz0ewzcgA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"brand\": \"Renault\",\n        \"model\": \"Megane\",\n        \"year\": 2008,\n        \"km\": 243840,\n        \"number_plate\": \"43MEP803\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/car/624d8300729f82124574ad9c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"car",
+						"624d8300729f82124574ad9c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstname\":\"Mehmet Enes\",\n    \"lastname\":\"PAZAR\",\n    \"email\":\"m.enespazar@gmail.com\",\n    \"password\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"m.enespazar@gmail.com\",\n    \"password\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Photo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "photos",
+							"type": "file",
+							"src": [
+								"/Users/enes/Downloads/a1.jpg",
+								"/Users/enes/Downloads/a2.jpg",
+								"/Users/enes/Downloads/a3.jpg",
+								"/Users/enes/Downloads/a4.jpg"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
