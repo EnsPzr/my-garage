@@ -7,6 +7,7 @@ const CarSchema = new Schema({
     year: {type: Number},
     km: {type: Number},
     number_plate: {type: String},
+    user: { type: Schema.ObjectId, ref: "User"}
 }, {
     timestamps: true,
 });
