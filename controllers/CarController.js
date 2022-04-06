@@ -5,7 +5,7 @@ const {validationResult} = require('express-validator');
 
 exports.carGetAll = async function (req, res) {
     try {
-        const rows = await Car.find({})
+        const rows = await Car.find({user: req.user.id})
         return response.successResponse(res, rows)
     } catch (e) {
         return response.errorResponse(res, e.message, 500)
@@ -19,6 +19,9 @@ exports.carGet = async function (req, res) {
 
         const car = await Car.findById(id);
         if (!car) return response.errorResponse(res, "Car not found", 404)
+
+        if (car.user.toHexString() !== req.user.id)
+            return response.errorResponse(res, "Only see your cars", 403)
 
         return response.successResponse(res, car)
     } catch (e) {
@@ -36,7 +39,8 @@ exports.carPost = async function (req, res) {
             model: req.body.model,
             year: req.body.year,
             km: req.body.km,
-            number_plate: req.body.number_plate.replace(/ /g, "")
+            number_plate: req.body.number_plate.replace(/ /g, ""),
+            user: req.user.id
         })
 
         const exResult = await Car.exists({number_plate: car.number_plate})
@@ -60,6 +64,9 @@ exports.carPut = async function (req, res) {
         const car = await Car.findById(id);
         if (!car) return response.errorResponse(res, "Car not found", 404)
 
+        if (car.user.toHexString() !== req.user.id)
+            return response.errorResponse(res, "Only updated your cars", 403)
+
         car.brand = req.body.brand
         car.model = req.body.model
         car.year = req.body.year
@@ -71,9 +78,7 @@ exports.carPut = async function (req, res) {
         })
         if (exResult) return response.errorResponse(res, "This number plate already exist!", 400)
 
-        const result = await Car.updateOne({_id: id}, car)
-        if (!result) return response.errorResponse(res, "Car not found", 404)
-
+        await Car.updateOne({_id: id}, car)
         return response.successResponse(res, car)
     } catch (e) {
         response.errorResponse(res, e.message, 500)
@@ -85,9 +90,13 @@ exports.carDelete = async function (req, res) {
         const id = req.params.id
         if (!validate.ValidateObjectId(id)) return response.errorResponse(res, "Id format is not correct", 400)
 
-        const result = await Car.findByIdAndDelete({_id: id})
-        if (!result) return response.errorResponse(res, "Car not found", 404)
+        const car = await Car.findById(id);
+        if (!car) return response.errorResponse(res, "Car not found", 404)
 
+        if (car.user.toHexString() !== req.user.id)
+            return response.errorResponse(res, "Only updated your cars", 403)
+
+        await Car.deleteOne({_id: id})
         return response.successResponse(res, id)
     } catch (e) {
         response.errorResponse(res, e.message, 500)
